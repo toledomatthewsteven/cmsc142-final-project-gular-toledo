@@ -13,6 +13,7 @@ def generate_test_case(filename, n):
             writer.writerow([i, r_j, w_j, p_j])
     print(f"Generated {filename} with {n} tasks.")
 
-if __name__ == "__main__":
-    generate_test_case('test_small.csv', 8)
-    generate_test_case('test_massive.csv', 10000)
+# Generated test cases already, don't run again unless needed (because making different cases will make different outputs yknow)
+# if __name__ == "__main__":
+    # generate_test_case('test_small.csv', 8)
+    # generate_test_case('test_massive.csv', 10000)
