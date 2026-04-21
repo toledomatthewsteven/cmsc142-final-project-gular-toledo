@@ -1,0 +1,7 @@
+# C compiled files
+*.o
+*.out
+*.exe
+
+# OS generated files
+.DS_Store
