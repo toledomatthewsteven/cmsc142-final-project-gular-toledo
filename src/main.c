@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>  // Added for tracking execution time!
+#include <time.h> 
 #include "tasks.h"
 
 #define MAX_TASKS 10005 
@@ -55,7 +55,7 @@ int main() {
 
         // Safety catch for the massive case
         if (algo_choice == 1 && file_choice == 6) {
-            printf("\n⚠️ CAUTION: Brute Force tests every permutation (N!).\n");
+            printf("\nCAUTION: Brute Force tests every permutation (N!).\n");
             printf("Running N=10,000 on Brute Force will crash your system.\n");
             printf("Returning to main menu...\n");
             continue; 
@@ -106,7 +106,7 @@ void run_scenario(const char* filename, int algo_choice) {
     time_taken = ((double)(end_time - start_time)) / CLOCKS_PER_SEC * 1000;
 
     // Only calculate cost and print if we actually ran the Greedy algorithm
-    // (Update this to if (algo_choice == 1 || algo_choice == 2) later)
+    // TODO: (Update this to if (algo_choice == 1 || algo_choice == 2) later)
     if (algo_choice == 2) { 
         long long total_cost = calculate_cost(tasks, num_tasks);
 
