@@ -16,5 +16,5 @@ cmsc142-final-project-gular-toledo/
 │
 └── data/                    # Datasets and Generators
     ├── generate_csv.py      # Python script to generate random task instances
-    ├── test_small.csv       # N=8 test case 
+    ├── test_n8-12.csv       # N=8 to 12 test cases (multiple files)
     └── test_massive.csv     # N=10,000 test case
