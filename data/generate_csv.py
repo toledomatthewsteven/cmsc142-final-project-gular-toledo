@@ -1,7 +1,7 @@
 import csv
 import random
 
-def generate_test_case(filename, n, max_release, max_weight, max_processing):
+def generate_test_case(filename, n, max_release, max_weight, max_processing): 
     with open(filename, 'w', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(['id', 'release_time', 'weight', 'processing_time'])
@@ -13,10 +13,14 @@ def generate_test_case(filename, n, max_release, max_weight, max_processing):
     print(f"Generated {filename} with {n} tasks.")
 
 if __name__ == "__main__":
-    # For N=8, keep release times VERY small (0 to 30) so they pile up in the queue
-    # while processing times can still be up to 50. 
-    generate_test_case('test_small.csv', 8, max_release=30, max_weight=10, max_processing=50)
+    print("Generating testing suite...")
     
-    # For N=10,000, a release range of 0 to 500 is perfectly fine because 
-    # the sheer volume of tasks will guarantee a massive queue.
+    # Stepping stones for the Complexity Curve (N=8 to 12)
+    sizes = [8, 9, 10, 11, 12]
+    for n in sizes:
+        generate_test_case(f'test_n{n}.csv', n, max_release=30, max_weight=10, max_processing=50)
+
+    # The massive case for the scalability proof
     generate_test_case('test_massive.csv', 10000, max_release=500, max_weight=10, max_processing=50)
+    
+    print("Done! Files are ready in the data/ folder.")
