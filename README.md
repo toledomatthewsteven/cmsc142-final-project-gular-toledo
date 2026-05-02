@@ -1,5 +1,11 @@
 # CMSC 142: Minimum Sequencing with Release Times
 
+To compile:
+```bash
+make
+./scheduler
+```
+
 ## 🗂️ Repository Structure
 ```text
 cmsc142-final-project-gular-toledo/
