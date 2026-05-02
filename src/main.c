@@ -92,9 +92,8 @@ void run_scenario(const char* filename, int algo_choice) {
     if (algo_choice == 1) {
         printf("Running Brute Force Solver (Exact Algorithm)...\n");
         start_time = clock();
-        // brute_force_solver(tasks, num_tasks);  // TODO: Uncomment when Person A merges!
+        brute_force_solver(tasks, num_tasks); 
         end_time = clock();
-        printf("[Waiting on Person A's Brute Force code to be merged!]\n");
     } else if (algo_choice == 2) {
         printf("Running Greedy Solver (WSPT Heuristic)...\n");
         start_time = clock();
@@ -107,7 +106,27 @@ void run_scenario(const char* filename, int algo_choice) {
 
     // Only calculate cost and print if we actually ran the Greedy algorithm
     // TODO: (Update this to if (algo_choice == 1 || algo_choice == 2) later)
-    if (algo_choice == 2) { 
+    if (algo_choice == 1) { 
+        long long total_cost = calculate_cost(tasks, num_tasks);
+
+        if (num_tasks <= 20) {
+            printf("\n--- Schedule Results ---\n");
+            printf("ID\tRel\tWgt\tP_Time\tStart\tEnd\n");
+            for (int i = 0; i < num_tasks; i++) {
+                printf("%d\t%d\t%d\t%d\t%d\t%d\n", 
+                       tasks[i].id, tasks[i].release_time, tasks[i].weight, 
+                       tasks[i].processing_time, tasks[i].start_time, tasks[i].completion_time);
+            }
+        } else {
+            printf("\n[Schedule table hidden to prevent terminal flood for large dataset]\n");
+        }
+        
+        printf("\n====================================================\n");
+        printf("RESULTS:\n");
+        printf("Total Weighted Completion Time: %lld\n", total_cost);
+        printf("Execution Time: %.3f milliseconds\n", time_taken);
+        printf("====================================================\n");
+    } else if (algo_choice == 2) { 
         long long total_cost = calculate_cost(tasks, num_tasks);
 
         if (num_tasks <= 20) {
