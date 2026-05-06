@@ -17,8 +17,8 @@ int main() {
         printf("====================================================\n");
 
         printf("Select Algorithm:\n");
-        printf("1. Brute Force (Exact)\n");
-        printf("2. Greedy (WSPT Heuristic)\n");
+        printf("1. Brute Force\n");
+        printf("2. Greedy\n");
         printf("0. EXIT Program\n");
         printf("Choice: ");
         scanf("%d", &algo_choice);
@@ -62,7 +62,7 @@ int main() {
         }
 
         // Safety catch for the massive case
-        if (algo_choice == 1 && file_choice == 6) {
+        if (algo_choice == 1 && file_choice == 10) {
             printf("\nCAUTION: Brute Force tests every permutation (N!).\n");
             printf("Running N=10,000 on Brute Force will crash your system.\n");
             printf("Returning to main menu...\n");
@@ -98,12 +98,12 @@ void run_scenario(const char* filename, int algo_choice) {
     double time_taken;
 
     if (algo_choice == 1) {
-        printf("Running Brute Force Solver (Exact Algorithm)...\n");
+        printf("Running Brute Force Solver...\n");
         start_time = clock();
         brute_force_solver(tasks, num_tasks); 
         end_time = clock();
     } else if (algo_choice == 2) {
-        printf("Running Greedy Solver (WSPT Heuristic)...\n");
+        printf("Running Greedy Solver...\n");
         start_time = clock();
         greedy_solver(tasks, num_tasks);
         end_time = clock();
