@@ -30,24 +30,32 @@ int main() {
         }
 
         printf("\nSelect Dataset:\n");
-        printf("1. N=8  (test_n8.csv)\n");
-        printf("2. N=9  (test_n9.csv)\n");
-        printf("3. N=10 (test_n10.csv)\n");
-        printf("4. N=11 (test_n11.csv) - [Danger zone for Brute Force begins]\n");
-        printf("5. N=12 (test_n12.csv)\n");
-        printf("6. N=10,000 (test_massive.csv)\n");
+        printf("1. N=4  (test_n4.csv)\n");
+        printf("2. N=5  (test_n5.csv)\n");
+        printf("3. N=6  (test_n6.csv)\n");
+        printf("4. N=7  (test_n7.csv)\n");
+        printf("5. N=8  (test_n8.csv)\n");
+        printf("6. N=9  (test_n9.csv)\n");
+        printf("7. N=10 (test_n10.csv)\n");
+        printf("8. N=11 (test_n11.csv) - [Danger zone for Brute Force begins]\n");
+        printf("9. N=12 (test_n12.csv)\n");
+        printf("10. N=10,000 (test_massive.csv)\n");
         printf("Choice: ");
         scanf("%d", &file_choice);
 
         // Map the choice to the correct filename
         char* filename = "";
         switch (file_choice) {
-            case 1: filename = "data/test_n8.csv"; break;
-            case 2: filename = "data/test_n9.csv"; break;
-            case 3: filename = "data/test_n10.csv"; break;
-            case 4: filename = "data/test_n11.csv"; break;
-            case 5: filename = "data/test_n12.csv"; break;
-            case 6: filename = "data/test_massive.csv"; break;
+            case 1:  filename = "data/test_n4.csv"; break;
+            case 2:  filename = "data/test_n5.csv"; break;
+            case 3:  filename = "data/test_n6.csv"; break;
+            case 4:  filename = "data/test_n7.csv"; break;
+            case 5:  filename = "data/test_n8.csv"; break;
+            case 6:  filename = "data/test_n9.csv"; break;
+            case 7:  filename = "data/test_n10.csv"; break;
+            case 8:  filename = "data/test_n11.csv"; break;
+            case 9:  filename = "data/test_n12.csv"; break;
+            case 10: filename = "data/test_massive.csv"; break;
             default:
                 printf("Invalid dataset choice.\n");
                 continue;
