@@ -4,6 +4,7 @@
 
 int compare_smiths_rule(const void *a, const void *b);
 int compare_release_times(const void *a, const void *b);
+int compare_start_times(const void *a, const void *b);
 
 // Greedy Approximation Algorithm using Smith's Rule with dynamic arrivals
 // * NOTE: it'd be nice to "trace" it or like, provide a high-level simulation with a small test case on how the algo solves
@@ -77,6 +78,9 @@ void greedy_solver(Task tasks[], int n) {
 
     free(unscheduled);
     free(ready_pool);
+
+    // Sort the final original array by start time so main.c prints it in the correct schedule order
+    qsort(tasks, n, sizeof(Task), compare_start_times);
 }
 
 // Sort descending by (Weight / Processing Time)
@@ -97,4 +101,11 @@ int compare_release_times(const void *a, const void *b) {
     Task *taskA = *(Task **)a;
     Task *taskB = *(Task **)b;
     return taskA->release_time - taskB->release_time;
+}
+
+// For better printing
+int compare_start_times(const void *a, const void *b) {
+    Task *taskA = (Task *)a;
+    Task *taskB = (Task *)b;
+    return taskA->start_time - taskB->start_time;
 }

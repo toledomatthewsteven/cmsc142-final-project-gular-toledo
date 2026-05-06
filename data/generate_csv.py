@@ -16,7 +16,7 @@ if __name__ == "__main__":
     print("Generating testing suite...")
     
     # Stepping stones for the Complexity Curve (N=8 to 12)
-    sizes = [8, 9, 10, 11, 12]
+    sizes = [4, 5, 6, 7, 8, 9, 10, 11, 12]
     for n in sizes:
         generate_test_case(f'test_n{n}.csv', n, max_release=30, max_weight=10, max_processing=50)
 

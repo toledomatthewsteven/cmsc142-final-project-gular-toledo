@@ -17,8 +17,8 @@ int main() {
         printf("====================================================\n");
 
         printf("Select Algorithm:\n");
-        printf("1. Brute Force (Exact)\n");
-        printf("2. Greedy (WSPT Heuristic)\n");
+        printf("1. Brute Force\n");
+        printf("2. Greedy\n");
         printf("0. EXIT Program\n");
         printf("Choice: ");
         scanf("%d", &algo_choice);
@@ -30,31 +30,39 @@ int main() {
         }
 
         printf("\nSelect Dataset:\n");
-        printf("1. N=8  (test_n8.csv)\n");
-        printf("2. N=9  (test_n9.csv)\n");
-        printf("3. N=10 (test_n10.csv)\n");
-        printf("4. N=11 (test_n11.csv) - [Danger zone for Brute Force begins]\n");
-        printf("5. N=12 (test_n12.csv)\n");
-        printf("6. N=10,000 (test_massive.csv)\n");
+        printf("1. N=4  (test_n4.csv)\n");
+        printf("2. N=5  (test_n5.csv)\n");
+        printf("3. N=6  (test_n6.csv)\n");
+        printf("4. N=7  (test_n7.csv)\n");
+        printf("5. N=8  (test_n8.csv)\n");
+        printf("6. N=9  (test_n9.csv)\n");
+        printf("7. N=10 (test_n10.csv)\n");
+        printf("8. N=11 (test_n11.csv) - [Danger zone for Brute Force begins]\n");
+        printf("9. N=12 (test_n12.csv)\n");
+        printf("10. N=10,000 (test_massive.csv)\n");
         printf("Choice: ");
         scanf("%d", &file_choice);
 
         // Map the choice to the correct filename
         char* filename = "";
         switch (file_choice) {
-            case 1: filename = "data/test_n8.csv"; break;
-            case 2: filename = "data/test_n9.csv"; break;
-            case 3: filename = "data/test_n10.csv"; break;
-            case 4: filename = "data/test_n11.csv"; break;
-            case 5: filename = "data/test_n12.csv"; break;
-            case 6: filename = "data/test_massive.csv"; break;
+            case 1:  filename = "data/test_n4.csv"; break;
+            case 2:  filename = "data/test_n5.csv"; break;
+            case 3:  filename = "data/test_n6.csv"; break;
+            case 4:  filename = "data/test_n7.csv"; break;
+            case 5:  filename = "data/test_n8.csv"; break;
+            case 6:  filename = "data/test_n9.csv"; break;
+            case 7:  filename = "data/test_n10.csv"; break;
+            case 8:  filename = "data/test_n11.csv"; break;
+            case 9:  filename = "data/test_n12.csv"; break;
+            case 10: filename = "data/test_massive.csv"; break;
             default:
                 printf("Invalid dataset choice.\n");
                 continue;
         }
 
         // Safety catch for the massive case
-        if (algo_choice == 1 && file_choice == 6) {
+        if (algo_choice == 1 && file_choice == 10) {
             printf("\nCAUTION: Brute Force tests every permutation (N!).\n");
             printf("Running N=10,000 on Brute Force will crash your system.\n");
             printf("Returning to main menu...\n");
@@ -90,12 +98,12 @@ void run_scenario(const char* filename, int algo_choice) {
     double time_taken;
 
     if (algo_choice == 1) {
-        printf("Running Brute Force Solver (Exact Algorithm)...\n");
+        printf("Running Brute Force Solver...\n");
         start_time = clock();
         brute_force_solver(tasks, num_tasks); 
         end_time = clock();
     } else if (algo_choice == 2) {
-        printf("Running Greedy Solver (WSPT Heuristic)...\n");
+        printf("Running Greedy Solver...\n");
         start_time = clock();
         greedy_solver(tasks, num_tasks);
         end_time = clock();
